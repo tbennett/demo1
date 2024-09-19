@@ -3,23 +3,33 @@ simple slides
 A demo for arrays and Events
 */
 
+// first make a shortcut variable for the button
 const next_button = document.getElementById("next");
 //console.log(next_button);
 
+//next define an array of images to use
 let myPics = ["frog1.jpg", "frog2.jpg", "frog3.jpg", "frog4.jpg"];
 //console.log(myPics[4]);
 
-let myPic = document.getElementById("pic");
+// crete shortcut var for the image element
+let frame = document.getElementById("pic");
+
+// make a variable to keep track of which image to show
 let counter = 0;
+
 //make button work
 next_button.addEventListener("click", function (e) {
+    //increment the counter to get next image
     counter++;
-    //check to see value of counter
-    if (counter == myPic.length - 1) {
+    console.log(counter);
+
+    //check to see value of counter isn't out of bounds. If so, reset.
+    if (counter == myPics.length) {
         counter = 0;
     }
-    console.log(counter);
-    myPic.src = "images/" + myPics[counter];
+
+    // swap the photo
+    frame.src = "images/" + myPics[counter];
 });
 
 //Let's look at condtionals
